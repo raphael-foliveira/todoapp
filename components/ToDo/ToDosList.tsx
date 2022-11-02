@@ -15,7 +15,7 @@ export default function toDosList({
             <Box>
                 <Heading textAlign={"center"}>Tarefas</Heading>
             </Box>
-            <Flex wrap={"wrap"} margin="3em" justifyContent={"center"}>
+            <Flex wrap={"wrap"} margin="2em" justifyContent={"center"}>
                 {toDos.map((toDo: ToDo) => (
                     <SingleToDo toDo={toDo} key={toDo.id} setToDos={setToDos} />
                 ))}

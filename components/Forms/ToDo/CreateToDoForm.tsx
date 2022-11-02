@@ -40,7 +40,7 @@ export default function CreateToDoForm({
         <FormCard>
             <Heading paddingBottom={"1em"}>Criar nova tarefa</Heading>
             <form action="" onSubmit={handleAddToDo}>
-                <ToDoForm formState={formState} setFormState={setFormState} />
+                <ToDoForm formState={formState} setFormState={setFormState} buttonText="Adicionar" />
             </form>
         </FormCard>
     );

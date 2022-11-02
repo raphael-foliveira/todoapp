@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../db";
-import { User } from "prisma/prisma-client";
 import { exclude } from "../../../services/prisma.services";
 
 /**
@@ -41,10 +40,15 @@ import { exclude } from "../../../services/prisma.services";
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "POST") {
-        const newUser = await prisma.user.create({
-            data: req.body,
-        });
-        res.status(201).json(newUser);
+        try {
+
+            const newUser = await prisma.user.create({
+                data: req.body,
+            });
+            res.status(201).json(newUser);
+        } catch {
+            res.status(409).json(null);
+        }
     }
     if (req.method === "GET") {
         const allUsers = await prisma.user.findMany({

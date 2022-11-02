@@ -51,7 +51,7 @@ export default function UserProfile() {
     };
 
     return (
-        <>
+        <Box>
             <Head>
                 <title>Lista de Tarefas</title>
             </Head>
@@ -70,7 +70,7 @@ export default function UserProfile() {
                             Criar nova tarefa
                         </Button>
                     </Flex>
-                    <Modal isOpen={isOpen} onClose={onClose}>
+                    <Modal isOpen={isOpen} onClose={onClose} isCentered>
                         <ModalOverlay />
                         <ModalContent>
                             <ModalCloseButton />
@@ -90,6 +90,6 @@ export default function UserProfile() {
                     <Spinner />
                 </Center>
             )}
-        </>
+        </Box>
     );
 }

@@ -1,6 +1,15 @@
 import FormCard from "../UI/FormCard";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Heading, Stack, FormControl, FormLabel, Input, Button, Flex } from "@chakra-ui/react";
+import {
+    Heading,
+    Stack,
+    FormControl,
+    FormLabel,
+    Input,
+    Button,
+    Flex,
+    FormErrorMessage,
+} from "@chakra-ui/react";
 import { createUser } from "../../services/user-services";
 import { useRouter } from "next/router";
 
@@ -22,6 +31,7 @@ export default function RegisterForm() {
     };
     const [formState, setFormState] = useState<RegisterFormState>(formInitialState);
     const router = useRouter();
+    const [userAlreadyExists, setUserAlreadyExists] = useState(false);
 
     const handleFormChange = (event: ChangeEvent<HTMLInputElement>) => {
         setFormState((previousState: RegisterFormState) => {
@@ -56,8 +66,12 @@ export default function RegisterForm() {
                 username: formState.username,
                 password: formState.password,
             };
-            await createUser(userInfo);
-            router.push("/");
+            const newUser = await createUser(userInfo);
+            if (!newUser) {
+                setUserAlreadyExists(true);
+            } else {
+                router.push("/");
+            }
         }
     };
 
@@ -69,15 +83,17 @@ export default function RegisterForm() {
                         Cadastre-se
                     </Heading>
                     <Stack spacing={4}>
-                        <FormControl id="username">
+                        <FormControl id="username" isInvalid={userAlreadyExists}>
                             <FormLabel>Login</FormLabel>
                             <Input type="username" name="username" onChange={handleFormChange} />
+                            <FormErrorMessage>Este usuário já existe</FormErrorMessage>
                         </FormControl>
-                        <FormControl id="password">
+                        <FormControl id="password" isInvalid={!formState.passwordsMatch}>
                             <FormLabel>Senha</FormLabel>
                             <Input type="password" name="password" onChange={handleFormChange} />
+                            <FormErrorMessage>As senhas não coincidem!</FormErrorMessage>
                         </FormControl>
-                        <FormControl id="passwordConfirm">
+                        <FormControl id="passwordConfirm" isInvalid={!formState.passwordsMatch}>
                             <FormLabel>Confirmar senha</FormLabel>
                             <Input
                                 type="password"

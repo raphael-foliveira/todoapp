@@ -42,7 +42,7 @@ export default function UpdateToDoForm({
         <FormCard>
             <Heading paddingBottom={"1em"}>Atualizar tarefa</Heading>
             <form action="" onSubmit={handleUpdateToDo}>
-                <ToDoForm formState={formState} setFormState={setFormState} />
+                <ToDoForm formState={formState} setFormState={setFormState} buttonText="Atualizar" />
             </form>
         </FormCard>
     );

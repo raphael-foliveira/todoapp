@@ -9,9 +9,11 @@ export type ToDoFormState = {
 export default function ToDoForm({
     formState,
     setFormState,
+    buttonText,
 }: {
     formState: ToDoFormState;
     setFormState: Dispatch<SetStateAction<ToDoFormState>>;
+    buttonText: string
 }) {
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormState((previousState: ToDoFormState) => {
@@ -36,7 +38,7 @@ export default function ToDoForm({
                 </FormControl>
             </Stack>
             <Button type="submit" colorScheme="blue">
-                Adicionar
+                {buttonText}
             </Button>
         </>
     );
