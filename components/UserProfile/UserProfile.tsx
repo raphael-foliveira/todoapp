@@ -67,7 +67,7 @@ export default function UserProfile() {
                     </Heading>
                     <Flex justifyContent="center" marginBottom={"3em"}>
                         <Button colorScheme={"blue"} onClick={onOpen}>
-                            Criar novo afazer
+                            Criar nova tarefa
                         </Button>
                     </Flex>
                     <Modal isOpen={isOpen} onClose={onClose}>

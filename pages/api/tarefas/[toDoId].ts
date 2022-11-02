@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next";
  * /tarefas/[toDoId]:
  *  delete:
  *      tags: [ToDo]
- *      summary: Deleta um afazer
+ *      summary: Deleta uma tarefa
  *      responses:
  *          200:
  *              content:
@@ -17,7 +17,7 @@ import { NextApiRequest, NextApiResponse } from "next";
  *                              $ref: '#/components/schemas/ToDo'
  *  patch:
  *      tags: [ToDo]
- *      summary: Modifica um ToDo existente
+ *      summary: Modifica uma tarefa existente
  *      requestBody:
  *          required: true
  *          content:
@@ -33,7 +33,7 @@ import { NextApiRequest, NextApiResponse } from "next";
  *                          $ref: '#/components/schemas/ToDo'
  *  get:
  *      tags: [ToDo]
- *      summary: Retorna um afazer
+ *      summary: Retorna uma tarefa
  *      responses:
  *          200:
  *              content:
@@ -41,6 +41,14 @@ import { NextApiRequest, NextApiResponse } from "next";
  *                      schema:
  *                          type: object
  *                          $ref: '#/components/schemas/ToDo'
+ *          404:
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              message: 
+ *                                  type: string
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { toDoId } = Array.isArray(req.query) ? req.query[0] : req.query;

@@ -17,7 +17,7 @@ import { prisma } from "../../../db";
  *                              $ref: '#/components/schemas/ToDo'
  *  post:
  *      tags: [ToDo]
- *      summary: Cria um novo afazer
+ *      summary: Cria uma nova tarefa
  *      requestBody:
  *          required: true
  *          content:

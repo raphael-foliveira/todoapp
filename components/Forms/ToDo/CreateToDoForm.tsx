@@ -38,7 +38,7 @@ export default function CreateToDoForm({
 
     return (
         <FormCard>
-            <Heading paddingBottom={"1em"}>Criar novo afazer</Heading>
+            <Heading paddingBottom={"1em"}>Criar nova tarefa</Heading>
             <form action="" onSubmit={handleAddToDo}>
                 <ToDoForm formState={formState} setFormState={setFormState} />
             </form>
