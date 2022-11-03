@@ -9,6 +9,7 @@ import {
     Button,
     Flex,
     FormErrorMessage,
+    Spinner
 } from "@chakra-ui/react";
 import { createUser } from "../../services/user-services";
 import { useRouter } from "next/router";
@@ -32,6 +33,7 @@ export default function RegisterForm() {
     };
     const [formState, setFormState] = useState<RegisterFormState>(formInitialState);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -102,8 +104,8 @@ export default function RegisterForm() {
                             <Input type="password" name="confirmPassword" onChange={handleChange} />
                         </FormControl>
                         <Flex justifyContent={"space-between"} wrap="wrap" gap={4}>
-                            <Button type="submit" width="120px" colorScheme={"blue"}>
-                                Cadastrar
+                            <Button type="submit" width="120px" colorScheme={"blue"} onClick={() => setLoading(true)}>
+                            {!loading ? "Cadastrar" : <Spinner /> }
                             </Button>
                             <Link href={"/"}>
                                 <Button colorScheme={"blue"} width="120px">

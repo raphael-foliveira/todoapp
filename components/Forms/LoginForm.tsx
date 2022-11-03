@@ -7,6 +7,7 @@ import {
     Button,
     Text,
     Flex,
+    Spinner
 } from "@chakra-ui/react";
 import FormCard from "../UI/FormCard";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -28,6 +29,7 @@ export default function LoginForm() {
         formIsValid: true,
     };
     const [formState, setFormState] = useState<LoginFormState>(formInitialState);
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
 
     const handleFormChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -94,8 +96,8 @@ export default function LoginForm() {
                                     </Link>
                                 </Stack>
                                 <Flex justifyContent={"space-between"} wrap="wrap" gap={4}>
-                                    <Button type="submit" colorScheme={"blue"} width="120px">
-                                        Login
+                                    <Button type="submit" colorScheme={"blue"} width="120px" onClick={() => setLoading(true)}>
+                                        {!loading ? "Login" : <Spinner /> }
                                     </Button>
                                     <Link href="/">
                                         <Button width={"120px"} colorScheme="blue">
