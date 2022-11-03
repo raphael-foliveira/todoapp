@@ -63,14 +63,14 @@ export default function UserProfile() {
             {userInfo ? (
                 <Box>
                     <Heading textAlign={"center"} margin="2em 0 1em">
-                        Bem vindo {userInfo.username}
+                        Olá, {userInfo.username}!
                     </Heading>
                     <Flex justifyContent="center" marginBottom={"3em"}>
                         <Button colorScheme={"blue"} onClick={onOpen}>
                             Criar nova tarefa
                         </Button>
                     </Flex>
-                    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+                    <Modal isOpen={isOpen} onClose={onClose} isCentered size={{base: "xs", lg:"md"}}>
                         <ModalOverlay />
                         <ModalContent>
                             <ModalCloseButton />

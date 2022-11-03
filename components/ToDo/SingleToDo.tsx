@@ -58,7 +58,7 @@ export default function SingleToDo({
             borderRadius={"15px"}
             boxShadow={"lg"}
         >
-            <Box minHeight={"300px"}>
+            <Box minHeight={"250px"}>
                 <Text>
                     <em>
                         <strong> ID: {toDo.id} </strong>{" "}
@@ -88,7 +88,7 @@ export default function SingleToDo({
                     Remover
                 </Button>
             </Flex>
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={onClose} size={{base: "xs", lg:"md"}} isCentered>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalCloseButton />
