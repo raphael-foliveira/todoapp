@@ -47,6 +47,7 @@ export default function RegisterForm() {
 
     const formIsValid = () => {
         let valid = true;
+        setUserAlreadyExists(false);
         if (userAlreadyExists) {
             setFormState((previousState) => {
                 return { ...previousState, usernameIsValid: false };
