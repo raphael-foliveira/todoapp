@@ -6,6 +6,7 @@ export type ToDoFormState = {
     description: string;
 };
 
+/**Formulário genérico contendo campos referentes a uma tarefa */
 export default function ToDoForm({
     formState,
     setFormState,

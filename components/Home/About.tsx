@@ -4,8 +4,6 @@ import {
     ModalCloseButton,
     ModalContent,
     ModalHeader,
-    Box,
-    Flex,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import styled from "@emotion/styled";
@@ -29,7 +27,7 @@ export default function About() {
                     <Text color={"blue.400"}>Github</Text>
                 </Link>
                 <Link href="/api-docs">
-                    <Text color={"blue.400"}>API</Text>
+                    <Text color={"blue.400"}>API (as rotas da api estão em /api)</Text>
                 </Link>
                 <Link href="https://todoapp-blue-nine.vercel.app/">
                     <Text color={"blue.400"}>App</Text>
@@ -37,7 +35,7 @@ export default function About() {
                 <ParagraphSpacing>
                     <Text>Olá!</Text>
                     <Text>
-                        Sou Raphael! Trabalho com desenvolvimento de software e websites. Durante
+                        Sou Raphael! Trabalho com desenvolvimento de software e webapps. Durante
                         boa parte da minha experiência profissional, trabalhei utilizando o
                         framework Django para desenvolver soluções, mas utilizo (e gosto muito) de
                         várias outras tecnologias, frameworks e linguagens de programação.

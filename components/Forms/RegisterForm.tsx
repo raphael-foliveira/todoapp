@@ -31,10 +31,10 @@ export default function RegisterForm() {
         passwordsMatch: true,
     };
     const [formState, setFormState] = useState<RegisterFormState>(formInitialState);
-    const router = useRouter();
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
+    const router = useRouter();
 
-    const handleFormChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setFormState((previousState: RegisterFormState) => {
             return {
                 ...previousState,
@@ -71,7 +71,10 @@ export default function RegisterForm() {
             if (!newUser) {
                 setUserAlreadyExists(true);
             } else {
-                router.push("/");
+                localStorage.setItem("username", newUser.username);
+                localStorage.setItem("password", formState.password);
+                localStorage.setItem("userId", newUser.id.toString());
+                router.push("/tarefas");
             }
         }
     };
@@ -86,32 +89,26 @@ export default function RegisterForm() {
                     <Stack spacing={4}>
                         <FormControl id="username" isInvalid={userAlreadyExists}>
                             <FormLabel>Login</FormLabel>
-                            <Input type="username" name="username" onChange={handleFormChange} />
+                            <Input type="username" name="username" onChange={handleChange} />
                             <FormErrorMessage>Este usuário já existe</FormErrorMessage>
                         </FormControl>
                         <FormControl id="password" isInvalid={!formState.passwordsMatch}>
                             <FormLabel>Senha</FormLabel>
-                            <Input type="password" name="password" onChange={handleFormChange} />
+                            <Input type="password" name="password" onChange={handleChange} />
                             <FormErrorMessage>As senhas não coincidem!</FormErrorMessage>
                         </FormControl>
                         <FormControl id="passwordConfirm" isInvalid={!formState.passwordsMatch}>
                             <FormLabel>Confirmar senha</FormLabel>
-                            <Input
-                                type="password"
-                                name="confirmPassword"
-                                onChange={handleFormChange}
-                            />
+                            <Input type="password" name="confirmPassword" onChange={handleChange} />
                         </FormControl>
                         <Flex justifyContent={"space-between"} wrap="wrap" gap={4}>
-                            <Button
-                                type="submit"
-                                width="120px"
-                                colorScheme={"blue"}
-                            >
+                            <Button type="submit" width="120px" colorScheme={"blue"}>
                                 Cadastrar
                             </Button>
                             <Link href={"/"}>
-                                <Button colorScheme={"blue"} width="120px">Voltar</Button>
+                                <Button colorScheme={"blue"} width="120px">
+                                    Voltar
+                                </Button>
                             </Link>
                         </Flex>
                     </Stack>

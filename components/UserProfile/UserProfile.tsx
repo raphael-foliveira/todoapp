@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 import { ToDo, User } from "prisma/prisma-client";
 import CreateToDoForm from "../Forms/ToDo/CreateToDoForm";
 import ToDosList from "../../components/ToDo/ToDosList";
-import { getUserInfo } from "../../services/user-services";
+import { authenticateUser, getUserInfo } from "../../services/user-services";
 import Head from "next/head";
 
 export interface UserWithToDos extends User {
@@ -29,10 +29,18 @@ export default function UserProfile() {
     const [toDos, setToDos] = useState<ToDo[]>([]);
     const { isOpen, onOpen, onClose } = useDisclosure();
 
+    const isAuthenticated = async () => {
+        const username = localStorage.getItem("username");
+        const password = localStorage.getItem("password");
+        if (username && password) {
+            return  await authenticateUser({username: username, password: password});
+        }
+        return null;
+    }
+
     const fetchUserInfo = async () => {
-        const authenticatedUserId = localStorage.getItem("userId");
-        if (authenticatedUserId) {
-            const dbUserInfo = await getUserInfo(authenticatedUserId);
+        const dbUserInfo = await isAuthenticated() as UserWithToDos;
+        if (dbUserInfo) {
             setUserInfo(dbUserInfo);
             setToDos(dbUserInfo.toDos);
             localStorage.setItem("tarefas", JSON.stringify(dbUserInfo.toDos));
@@ -40,6 +48,7 @@ export default function UserProfile() {
             router.push("/login", "/login?error=nao-autenticado");
         }
     };
+
 
     useEffect(() => {
         fetchUserInfo();

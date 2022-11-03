@@ -7,7 +7,6 @@ import {
     Button,
     Text,
     Flex,
-    Box,
 } from "@chakra-ui/react";
 import FormCard from "../UI/FormCard";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -53,9 +52,8 @@ export default function LoginForm() {
             return;
         }
         localStorage.setItem("username", user.username);
-        localStorage.setItem("password", user.password);
+        localStorage.setItem("password", formState.password);
         localStorage.setItem("userId", user.id.toString());
-        localStorage.setItem("authenticated", "true");
         router.push("/tarefas");
     };
 
@@ -96,11 +94,7 @@ export default function LoginForm() {
                                     </Link>
                                 </Stack>
                                 <Flex justifyContent={"space-between"} wrap="wrap" gap={4}>
-                                    <Button
-                                        type="submit"
-                                        colorScheme={"blue"}
-                                        width="120px"
-                                    >
+                                    <Button type="submit" colorScheme={"blue"} width="120px">
                                         Login
                                     </Button>
                                     <Link href="/">

@@ -5,6 +5,10 @@ import { updateToDo } from "../../../services/todo-services";
 import { ToDo } from "prisma/prisma-client";
 import ToDoForm from "./ToDoForm";
 
+/**Formulário para atualização de tarefa.
+ * Utiliza o formulário genérico (ToDoForm) mas possui uma função própria 
+ * para lidar com a submissão das informações.
+ */
 type UpdateToDoFormState = {
     name: string;
     description: string;

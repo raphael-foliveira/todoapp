@@ -16,6 +16,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { deleteToDo, updateToDo } from "../../services/todo-services";
 import UpdateToDoForm from "../Forms/ToDo/UpdateToDoForm";
 
+/**Renderiza uma única tarefa */
 export default function SingleToDo({
     toDo,
     setToDos,

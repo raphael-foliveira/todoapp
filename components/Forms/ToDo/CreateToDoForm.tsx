@@ -6,6 +6,10 @@ import { ToDo } from "prisma/prisma-client";
 import ToDoForm from "./ToDoForm";
 import { ToDoFormState } from "./ToDoForm";
 
+/**Formulário para criação de tarefa.
+ * Utiliza o formulário genérico (ToDoForm) mas possui uma função própria 
+ * para lidar com a submissão das informações.
+ */
 export default function CreateToDoForm({
     toDoAuthor,
     setToDos,
@@ -40,7 +44,11 @@ export default function CreateToDoForm({
         <FormCard>
             <Heading paddingBottom={"1em"}>Criar nova tarefa</Heading>
             <form action="" onSubmit={handleAddToDo}>
-                <ToDoForm formState={formState} setFormState={setFormState} buttonText="Adicionar" />
+                <ToDoForm
+                    formState={formState}
+                    setFormState={setFormState}
+                    buttonText="Adicionar"
+                />
             </form>
         </FormCard>
     );

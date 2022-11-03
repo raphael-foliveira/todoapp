@@ -3,6 +3,7 @@ import SingleToDo from "./SingleToDo";
 import { Flex, Box, Heading } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
 
+/**Renderiza uma lista de tarefas, assegurando responsividade. */
 export default function toDosList({
     toDos,
     setToDos,
