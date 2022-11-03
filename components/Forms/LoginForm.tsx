@@ -51,6 +51,7 @@ export default function LoginForm() {
                     formIsValid: false,
                 };
             });
+            setLoading(false);
             return;
         }
         localStorage.setItem("username", user.username);
