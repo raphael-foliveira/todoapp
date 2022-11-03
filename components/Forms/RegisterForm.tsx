@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { createUser } from "../../services/user-services";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 type RegisterFormState = {
     username: string;
@@ -104,18 +105,14 @@ export default function RegisterForm() {
                         <Flex justifyContent={"space-between"} wrap="wrap" gap={4}>
                             <Button
                                 type="submit"
-                                width={{ base: "100%", lg: "40%" }}
+                                width="120px"
                                 colorScheme={"blue"}
                             >
                                 Cadastrar
                             </Button>
-                            <Button
-                                width={{ base: "100%", lg: "40%" }}
-                                colorScheme={"blue"}
-                                onClick={() => router.push("/")}
-                            >
-                                Voltar
-                            </Button>
+                            <Link href={"/"}>
+                                <Button colorScheme={"blue"} width="120px">Voltar</Button>
+                            </Link>
                         </Flex>
                     </Stack>
                 </form>

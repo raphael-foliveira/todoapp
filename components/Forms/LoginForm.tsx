@@ -6,7 +6,6 @@ import {
     FormLabel,
     Button,
     Text,
-    Link,
     Flex,
     Box,
 } from "@chakra-ui/react";
@@ -15,6 +14,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { authenticateUser } from "../../services/user-services";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Link from "next/link";
 
 type LoginFormState = {
     username: string;
@@ -61,9 +61,9 @@ export default function LoginForm() {
 
     return (
         <>
-        <Head>
-            <title>Login</title>
-        </Head>
+            <Head>
+                <title>Login</title>
+            </Head>
             <Flex justifyContent="center" padding={"5em 0"} width="100%">
                 <FormCard>
                     <form action="" method="" onSubmit={handleSubmit}>
@@ -83,23 +83,32 @@ export default function LoginForm() {
                                     onChange={handleFormChange}
                                 />
                             </FormControl>
-                            {!formState.formIsValid && <Text color={"red.400"}>Credenciais inválidas</Text>}
+                            {!formState.formIsValid && (
+                                <Text color={"red.400"}>Credenciais inválidas</Text>
+                            )}
                             <Stack spacing={10}>
-                                <Stack
-                                    direction={{ base: "column", sm: "row" }}
-                                    align={"start"}
-                                    justify={"space-between"}
-                                >
-                                    <Text fontSize={"smaller"}>
-                                        Ainda não tem uma conta?{" "}
-                                        <Link color={"blue.400"} marginLeft="" href="/cadastrar">
+                                <Stack direction={{ base: "column", sm: "row" }} align={"start"}>
+                                    <Text fontSize={"smaller"}>Ainda não tem uma conta?</Text>
+                                    <Link href="/cadastrar">
+                                        <Text color={"blue.400"} fontSize={"smaller"}>
                                             Registre-se
-                                        </Link>
-                                    </Text>
+                                        </Text>
+                                    </Link>
                                 </Stack>
-                                <Button type="submit" colorScheme={"blue"} color={"white"}>
-                                    Login
-                                </Button>
+                                <Flex justifyContent={"space-between"} wrap="wrap" gap={4}>
+                                    <Button
+                                        type="submit"
+                                        colorScheme={"blue"}
+                                        width="120px"
+                                    >
+                                        Login
+                                    </Button>
+                                    <Link href="/">
+                                        <Button width={"120px"} colorScheme="blue">
+                                            Voltar
+                                        </Button>
+                                    </Link>
+                                </Flex>
                             </Stack>
                         </Stack>
                     </form>
