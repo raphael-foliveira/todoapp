@@ -1,10 +1,4 @@
-import {
-    ModalBody,
-    Text,
-    ModalCloseButton,
-    ModalContent,
-    ModalHeader,
-} from "@chakra-ui/react";
+import { ModalBody, Text, ModalCloseButton, ModalContent, ModalHeader } from "@chakra-ui/react";
 import Link from "next/link";
 import styled from "@emotion/styled";
 
@@ -23,22 +17,13 @@ export default function About() {
             <ModalHeader>Sobre o App</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-                <Link href="https://github.com/raphael-foliveira/todoapp">
-                    <Text color={"blue.400"}>Github</Text>
-                </Link>
-                <Link href="/api-docs">
-                    <Text color={"blue.400"}>API (as rotas da api estão em /api)</Text>
-                </Link>
-                <Link href="https://todoapp-blue-nine.vercel.app/">
-                    <Text color={"blue.400"}>App</Text>
-                </Link>
                 <ParagraphSpacing>
                     <Text>Olá!</Text>
                     <Text>
-                        Sou Raphael! Trabalho com desenvolvimento de software e webapps. Durante
-                        boa parte da minha experiência profissional, trabalhei utilizando o
-                        framework Django para desenvolver soluções, mas utilizo (e gosto muito) de
-                        várias outras tecnologias, frameworks e linguagens de programação.
+                        Sou Raphael! Trabalho com desenvolvimento de software e webapps. Durante boa
+                        parte da minha experiência profissional, trabalhei utilizando o framework
+                        Django para desenvolver soluções, mas utilizo (e gosto muito) de várias
+                        outras tecnologias, frameworks e linguagens de programação.
                     </Text>
                     <Text>
                         Desenvolvi esse projeto utilizando{" "}
@@ -48,7 +33,8 @@ export default function About() {
                     <Text>
                         O NextJs me dá a possibilidade de construir o front end em React, além de me
                         dar um diretório para construir uma API Rest com facilidade, permitindo a
-                        integração do meu projeto com um banco de dados. Tudo isso utilizando TypeScript.
+                        integração do meu projeto com um banco de dados. Tudo isso utilizando
+                        TypeScript.
                     </Text>
                     <Text>
                         Usar o React no front end me deu também a possibilidade de utilizar a
@@ -63,8 +49,19 @@ export default function About() {
                         que está hospedado no serviço RDS da AWS.
                     </Text>
                     <Text>Este app está sendo hospedado através da Vercel.</Text>
-                    <Text fontSize={"xs"} textAlign="end">Salvador, 2022.</Text>
                 </ParagraphSpacing>
+                <Link href="https://github.com/raphael-foliveira/todoapp">
+                    <Text color={"blue.400"}>Github</Text>
+                </Link>
+                <Link href="/api-docs">
+                    <Text color={"blue.400"}>API (as rotas da api estão em /api)</Text>
+                </Link>
+                <Link href="https://todoapp-blue-nine.vercel.app/">
+                    <Text color={"blue.400"}>App</Text>
+                </Link>
+                <Text fontSize={"xs"} textAlign="end">
+                    Salvador, 2022.
+                </Text>
             </ModalBody>
         </ModalContent>
     );
