@@ -72,7 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (toDoId && req.method === "GET") {
         const toDo = await prisma.toDo.findUnique({
             where: {
-                id: toDoId,
+                id: parseInt(toDoId),
             },
         });
         if (toDo) {
