@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 /**
  * @swagger
- * /tarefas/[toDoId]:
+ * /api/tarefas/[toDoId]:
  *  delete:
  *      tags: [ToDo]
  *      summary: Deleta uma tarefa

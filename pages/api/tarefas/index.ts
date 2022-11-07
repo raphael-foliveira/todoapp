@@ -3,7 +3,7 @@ import { prisma } from "../../../db";
 
 /**
  * @swagger
- * /tarefas:
+ * /api/tarefas:
  *  get:
  *      tags: [ToDo]
  *      summary: Retorna todos as tarefas

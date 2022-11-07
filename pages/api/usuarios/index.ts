@@ -4,7 +4,7 @@ import { exclude } from "../../../services/prisma.services";
 
 /**
  * @swagger
- * /usuarios:
+ * /api/usuarios:
  *  get:
  *      tags: [User]
  *      summary: Retorna todos os usuarios
