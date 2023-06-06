@@ -9,9 +9,6 @@ Para rodar localmente utilize o comando
 npm run dev
 </p>
 <p>
-Link para o app - https://todoapp-blue-nine.vercel.app/
-</p>
-<p>
 A documentação da api está em /api-docs
 </p>
 <p>
